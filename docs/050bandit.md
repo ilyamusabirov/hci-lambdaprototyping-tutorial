@@ -36,7 +36,11 @@ Two handlers in [code](../tg-bandits/app.py), `random_choice_bandit1` & `button`
 - `random_choice_bandit1` reads from DynamoDB bandit state, chooses egreedy way a prompt and generates a keyboard to send binary reward.
 - `button` processes callback with reward, updating badnit state in DB.
 
+![prompt and buttons](fig/050-001.png)
+
 In addition, `report` hadnler returns state of the bandit from DB.
+
+![prompt and buttons](fig/050-002.png)
 
 See [inline keyboard example](https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py) to learn more about working with inline keyboards,
 callbacks and [advanced example](https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard2.py) for state-based conversational interaction.
