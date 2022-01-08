@@ -9,8 +9,8 @@ app = Chalice(app_name="tg-notion")
 import json
 import requests
 
-from telegram import Update, ForceReply, Bot, ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram import Update, ForceReply, Bot, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
 
 # Create bot, update queue and dispatcher instances
 bot = Bot(TG_TOKEN)
@@ -51,12 +51,96 @@ def random_choice1(update: Update, context:CallbackContext) -> None:
     arm = random.choice(options)
     update.message.reply_text(prompts[arm], parse_mode="Markdown")
 
+## This handler requires created DynamoDB table and created bandit record
+BANDIT_DATA_TABLE = 'tg-bandits-bandit1'
+BANDIT_NAME = 'test_epsilon_greedy_1'
+### Move this part to header/separate module. Combined here for handlers versioning in the tutorial 
+import boto3
+from decimal import Decimal
+import json
+import random
+def reply_bandit_policy(update: Update, context:CallbackContext) -> None:
+    ddb = boto3.resource('dynamodb')
+    bandit_key = {'bandit_id': BANDIT_NAME,
+                                    'creation_date': '2021-01-07 00:00:01'}
+    table = ddb.Table(BANDIT_DATA_TABLE)
+    r = table.get_item(Key=bandit_key)
+    item = r['Item']
+    print(item)
+    update.message.reply_text(str(item))
+
+def random_choice_bandit1(update: Update, context:CallbackContext) -> None:
+    """Src: https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py
+      Presenting options from epsilon-greedy bandit persisted in DynamoDB, showing inline keyboard for reward
+    """
+    ddb = boto3.resource('dynamodb')
+    bandit_key = {'bandit_id': BANDIT_NAME,
+                                    'creation_date': '2021-01-07 00:00:01'}
+    table = ddb.Table(BANDIT_DATA_TABLE)
+    r = table.get_item(Key=bandit_key)
+    item = r['Item']
+    print(item)
+    # update.message.reply_text(str(item))
+    eps = item['epsilon']
+    p = random.random()
+    print(p, eps)
+    arms = item['state']['arms']
+    arm_ids = list(arms.keys())
+    arm_rewards = {arm:state['reward']/(state['n']+1) for (arm, state) in arms.items()}
+    if p < eps:
+      choice = random.choice(arm_ids)
+    else:
+      choice = max(arm_rewards, key = arm_rewards.get)
+
+    prompt = arms[choice]['text']
+
+    keyboard = [
+      [
+        InlineKeyboardButton("Yes", callback_data=f'{choice}-1'), 
+        InlineKeyboardButton("No", callback_data=f'{choice}-0')]
+      ]
+    reply_markup = InlineKeyboardMarkup(keyboard, resize_keyboard=True)
+    user = update.effective_user
+    # print(reply_markup)
+    # print('---\n')
+    # print(prompt)
+    update.message.reply_markdown_v2(
+        f"{prompt}\n Do you like it?",
+        reply_markup=reply_markup,
+    )
+def button(update: Update, context: CallbackContext) -> None:
+    """Src: https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py
+       Working with response to bandit prompt. Now passing data is really ugly (string callback + split)
+    """
+    query = update.callback_query
+    
+    data = query.data.split('-')
+    choice = data[0]
+    reward = data[1]
+
+    ddb = boto3.resource('dynamodb')
+    bandit_key = {'bandit_id': BANDIT_NAME,
+                                    'creation_date': '2021-01-07 00:00:01'}
+    table = ddb.Table(BANDIT_DATA_TABLE)
+    r = table.get_item(Key=bandit_key)
+    item = r['Item']
+
+    item['state']['arms'][choice]['reward'] += Decimal(reward)
+    item['state']['arms'][choice]['n'] += Decimal(1)
+    response = table.put_item(
+      Item = item
+    )
+    #query.answer(text=f"Selected option: {str(query.data)}, {response}")
+    query.edit_message_text(text=f"Selected option: {str(query.data)},\n{response}")
+    # update.message.reply_text(f"Selected option: {str(query.data)}, {response}")
 
 
 ### add telegram handlers
 dispatcher.add_handler(CommandHandler("start", start))
 dispatcher.add_handler(CommandHandler("key", key))
-dispatcher.add_handler(CommandHandler("random", random_choice1))
+dispatcher.add_handler(CommandHandler("report", reply_bandit_policy))
+dispatcher.add_handler(CommandHandler("random", random_choice_bandit1))
+dispatcher.add_handler(CallbackQueryHandler(button))
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 
 
