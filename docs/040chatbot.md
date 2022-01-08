@@ -16,6 +16,7 @@ but that increases amount of code to develop so using one of Pythons bindings ma
 You will need a secret bot token as a result of creating bot with [BotFather](https://telegram.me/botfather).
 
 You can put it to
+
 ```bash
 chalicelib/secret/__init__.py
 ```
@@ -69,7 +70,7 @@ After getting `request_body`, we manually call bot `dispatcher` to process updat
 
 This process looks for handlers for different types of updates
 
-### Telegram bot dispatcher handlers
+### Telegram bot dispatcher handlers reistration
 
 ```python
 dispatcher.add_handler(CommandHandler("start", start))
@@ -77,7 +78,6 @@ dispatcher.add_handler(CommandHandler("key", key))
 dispatcher.add_handler(CommandHandler("random", random_choice1))
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 ```
-
 After matching with the right handler, update looks for a particular function
 
 ### Telegram bot handler functions
