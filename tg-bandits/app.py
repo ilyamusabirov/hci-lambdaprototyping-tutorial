@@ -39,11 +39,24 @@ def key(update: Update, context: CallbackContext) -> None:
 
 def echo(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(update.message.text)
-    bot.send_message(update.message.chat.id, f"*sm*", parse_mode="Markdown")
+    bot.send_message(update.message.chat.id, f"*echo-sm*", parse_mode="Markdown")
+
+def random_choice1(update: Update, context:CallbackContext) -> None:
+    import random
+    options = ['arm1', 'arm2']
+    prompts = {
+      'arm1': 'This is arm *1*',
+      'arm2': 'This _is_ arm _2_'
+    }
+    arm = random.choice(options)
+    update.message.reply_text(prompts[arm], parse_mode="Markdown")
+
+
 
 ### add telegram handlers
 dispatcher.add_handler(CommandHandler("start", start))
 dispatcher.add_handler(CommandHandler("key", key))
+dispatcher.add_handler(CommandHandler("random", random_choice1))
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 
 
