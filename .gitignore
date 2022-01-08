@@ -2,6 +2,7 @@ tg-bandits/.chalice/deployments/
 tg-bandits/.chalice/deployed/
 .env/
 tg-bandits/chalicelib/secret/
+tg-bandits/.vscode/
 
 
 ### https://github.com/github/gitignore/blob/main/Python.gitignore
