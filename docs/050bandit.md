@@ -1,5 +1,6 @@
-# Bot goes bandit
+# Bot Goes Bandit
 
+## Random Prompting
 As a first step let's randomize what we return to user:
 
 ```python
@@ -26,9 +27,15 @@ For that we are going to use AWS DynamoDB, serverless key-value db.
 
 See [dynamodb-setup.ipynb](dynamodb-setup.ipynb) for example of creating DynamoDB table and working with storing bandit data in it before running app examples.
 
-## Advanced references
+Two handlers in code, `random_choice_bandit1` & `button` are responsible for bandit interaction:
 
-- [Tutorial](https://aws.amazon.com/blogs/machine-learning/dynamic-a-b-testing-for-machine-learning-models-with-amazon-sagemaker-mlops-projects/) and [Repo](https://github.com/aws-samples/amazon-sagemaker-ab-testing-pipeline) on AB testing (and bandit testing) SageMaker ML models using bandits on Lambda. No chatbots :)
+- `random_choice_bandit1` reads from DynamoDB bandit state, chooses egreedy way a prompt and generates a keyboard to send binary reward.
+- `button` processes callback with reward, updating badnit state in DB.
+
+In addition, `report` hadnler returns state of the bandit from DB.
+
+See [inline keyboard example](https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py) to learn more about working with inline keyboards,
+callbacks and [advanced example](https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard2.py) for state-based conversational interaction.
 
 ## Task ideas
 
@@ -38,3 +45,8 @@ See [dynamodb-setup.ipynb](dynamodb-setup.ipynb) for example of creating DynamoD
 - Prototype texting fixtures: 
     - implement some features to quickly change and load bandit state so not to start from scratch
     - e.g. add 'cheater mode' with commands adding sequence of rewards to some arms, or directly setting up interesting priors
+
+
+## Advanced references for bandit ideas
+
+- [Tutorial](https://aws.amazon.com/blogs/machine-learning/dynamic-a-b-testing-for-machine-learning-models-with-amazon-sagemaker-mlops-projects/) and [Repo](https://github.com/aws-samples/amazon-sagemaker-ab-testing-pipeline) on AB testing (and bandit testing) SageMaker ML models using bandits on Lambda. No chatbots :)
