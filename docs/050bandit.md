@@ -1,7 +1,26 @@
 # Bot goes bandit
 
-* Exploration vs exploitation
-* Sending debug
+As a first step let's randomize what we return to user:
+
+```python
+def random_choice1(update: Update, context:CallbackContext) -> None:
+    import random
+    options = ['arm1', 'arm2']
+    prompts = {
+      'arm1': 'This is arm *1*',
+      'arm2': 'This _is_ arm _2_'
+    }
+    arm = random.choice(options)
+    update.message.reply_text(prompts[arm], parse_mode="Markdown")
+```
+
+Don't forget registering handler for command.
+
+This is the first step to bandit, but due to our request-responce architecture, there is no bandit object existing between function calls.
+
+This means that to create a bandit we will need to add persistence and save and restore bandit state to database for each call.
+
+For that we are going to use AWS DynamoDB, serverless key-value db.
 
 ## Adding persistence - DynamoDB
 
