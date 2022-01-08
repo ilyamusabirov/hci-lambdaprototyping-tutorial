@@ -27,9 +27,11 @@ For that we are going to use AWS DynamoDB, serverless key-value db.
 
 See [dynamodb-setup.ipynb](dynamodb-setup.ipynb) for example of creating DynamoDB table and working with storing bandit data in it before running app examples.
 
-Note, that adding DynamoDB seems to require manual access policy, see [config.json](../tg-bandits/.chalice/config.json) and [policy-dev.json](../tg-bandits/.chalice/policy-dev.json), last copied from [J. Olabemiwo tutorial on creating CRUD apps on Lambda](https://auth0.com/blog/how-to-create-crud-rest-api-with-aws-chalice/)
+Note, that adding DynamoDB seems to require switching to manual access policy, see [config.json](../tg-bandits/.chalice/config.json) and [policy-dev.json](../tg-bandits/.chalice/policy-dev.json), last copied from [J. Olabemiwo tutorial on creating CRUD apps on Lambda](https://auth0.com/blog/how-to-create-crud-rest-api-with-aws-chalice/)
 
-Two handlers in code, `random_choice_bandit1` & `button` are responsible for bandit interaction:
+## eGreedy bandit + database
+
+Two handlers in [code](../tg-bandits/app.py), `random_choice_bandit1` & `button` are responsible for bandit interaction:
 
 - `random_choice_bandit1` reads from DynamoDB bandit state, chooses egreedy way a prompt and generates a keyboard to send binary reward.
 - `button` processes callback with reward, updating badnit state in DB.
