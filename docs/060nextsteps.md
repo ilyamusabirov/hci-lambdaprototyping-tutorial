@@ -4,7 +4,6 @@
 
 ### Prototyping/Wizard of Oz Ideas
 
-- Render more sofisticated formated prompts with `jinja2` in Lambda, transform to png and send via chat bots to preserve formatting/add figures
 - Get bandit prompts from Trello Cards (text + pictures), update and move cards in Trello based on rewards
 
 ### Extrenal APIs/services ideas

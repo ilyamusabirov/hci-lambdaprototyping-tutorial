@@ -40,4 +40,10 @@ This tutorial will use AWS serverless service Lambda and Lambda-centred Python f
 
 Good bonus is that Lambda, DynamoDB and some other components can be (with some limits, usually enough for prototyping) used as a part of AWS FreeTier.
 
-More on Why chatbots
+## Why chatbots
+
+- No ideal interaction-only prototype but (simple request-response) chatbots are quite close
+    - you can outline dialogue-based interaction strict from conceptual model (more likely verb/task than noun/entity-based) and scenario outlines
+    - you can mix low-def and hi-def parts (e.g. rendering real output forms and sending via messenger)
+- If integrated into right channel with chances of being a part of user flow (Telegram, Slack), might more likely to sustain longitudinal interaction than web app
+- Can iniciate interactions (prompts, notifications)

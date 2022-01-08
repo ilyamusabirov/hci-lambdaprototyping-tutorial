@@ -32,8 +32,6 @@ notification and pub-sub services, ML model deployment services, AI APIs (text r
 - AWS SageMaker - ML model development and deployment service (jupyter notebook to Web API)
 - AWS S3 - simple object file storage
 
-
-
 ## References
 
 * plantuml / c4

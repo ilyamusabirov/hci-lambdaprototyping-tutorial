@@ -30,3 +30,10 @@ Usually good search term for package dosumentation is webhook mode.
 
 
 ## Reacting to first message
+
+
+## Task ideas
+
+- Render more sofisticated formated prompts, e.g. html+css with `jinja2` in Lambda, png graphs with `matplotlib` or `seaborn`, transform to picture and send via chat bots to preserve formatting/add figures
+- Think about voice message and document inputs
+- Add intent recognition
