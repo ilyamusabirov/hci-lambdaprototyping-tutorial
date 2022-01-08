@@ -13,6 +13,18 @@ In principle, using iPython widgets as interfaces, one can think to create a cli
 In principle, we can construct and use direct Telegram Web API calls from our Lambda functions, 
 but that increases amount of code to develop so using one of Pythons bindings makes sense.
 
+You will need a secret bot token as a result of creating bot with [BotFather](https://telegram.me/botfather).
+
+You can put it to
+```bash
+chalicelib/secret/__init__.py```
+
+to use in your code as
+
+```python
+from chalicelib.secret import TG_TOKEN
+```
+
 ### Webhook mode and python bot packages
 
 Usually bot backends are started as services an use polling to get portions if requests from Telegram.
@@ -28,6 +40,12 @@ Usually good search term for package dosumentation is webhook mode.
 * [Python Telegram Bot: Webhook mode](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Webhooks)
 * [Python Telegram Bot: General Docs](https://github.com/python-telegram-bot/python-telegram-bot)
 
+After setting up your back end in Chalice and creating the bot you want to set up web hook to point to your Lambda function (assuming its url is in `LAMBDA_URL`):
+
+```python
+import requests
+r = requests.post(f'https://api.telegram.org/bot{TG_TOKEN}/setWebhook?url={LAMBDA_URL}')
+```
 
 ## Reacting to first message
 
