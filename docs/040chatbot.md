@@ -17,7 +17,8 @@ You will need a secret bot token as a result of creating bot with [BotFather](ht
 
 You can put it to
 ```bash
-chalicelib/secret/__init__.py```
+chalicelib/secret/__init__.py
+```
 
 to use in your code as
 
@@ -40,15 +41,59 @@ Usually good search term for package dosumentation is webhook mode.
 * [Python Telegram Bot: Webhook mode](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Webhooks)
 * [Python Telegram Bot: General Docs](https://github.com/python-telegram-bot/python-telegram-bot)
 
-After setting up your back end in Chalice and creating the bot you want to set up web hook to point to your Lambda function (assuming its url is in `LAMBDA_URL`):
+After setting up your back end in Chalice and creating the bot you want to [set up web hook](docs/webhook-setup.ipynb) to point to your Lambda function (assuming its url is in `LAMBDA_URL`)
+
+Starting from that point, your Telegram bot should work with your backend
+
+## Code structure for bot
+
+With `python-telegram-bot`, our code contains multiple parts:
+
+### Main Lambda request handler
+
+This is where requests sent from Telegram via webhook.
 
 ```python
-import requests
-r = requests.post(f'https://api.telegram.org/bot{TG_TOKEN}/setWebhook?url={LAMBDA_URL}')
+@app.route("/", methods=["POST"])
+def main():
+    request_body = app.current_request.json_body
+    update_object = Update.de_json(request_body, bot)
+    print(update_object)
+    dispatcher.process_update(update_object)
+    return {
+        "statusCode": 200
+    }
 ```
 
-## Reacting to first message
+After getting `request_body`, we manually call bot `dispatcher` to process updates we got.
 
+This process looks for handlers for different types of updates
+
+### Telegram bot dispatcher handlers
+
+```python
+dispatcher.add_handler(CommandHandler("start", start))
+dispatcher.add_handler(CommandHandler("key", key))
+dispatcher.add_handler(CommandHandler("random", random_choice1))
+dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+```
+
+After matching with the right handler, update looks for a particular function
+
+### Telegram bot handler functions
+
+```python
+### define telegram handler functions
+def start(update: Update, context: CallbackContext) -> None:
+    """Send a message when the command /start is issued."""
+    user = update.effective_user
+    update.message.reply_markdown_v2(
+        fr"Hi {user.mention_markdown_v2()}",
+        reply_markup=ForceReply(selective=True),
+    )
+```
+
+Note that to reply to user we use bot methods to send messages, not returns from functions
 
 ## Task ideas
 
