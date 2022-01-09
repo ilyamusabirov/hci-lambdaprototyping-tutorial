@@ -120,6 +120,7 @@ Actually, a lot of stuff happens in the background:
 
 --- 
 
-[Next](040chatbot.md)
+* [Next](040chatbot.md)
+* [Up](../README.md)
 
 ---

@@ -58,3 +58,10 @@ callbacks and [advanced example](https://github.com/python-telegram-bot/python-t
 ## Advanced references for bandit ideas
 
 - [Tutorial](https://aws.amazon.com/blogs/machine-learning/dynamic-a-b-testing-for-machine-learning-models-with-amazon-sagemaker-mlops-projects/) and [Repo](https://github.com/aws-samples/amazon-sagemaker-ab-testing-pipeline) on AB testing (and bandit testing) SageMaker ML models using bandits on Lambda. No chatbots :)
+
+--- 
+
+* [Next](060nextsteps.md)
+* [Up](../README.md)
+
+---

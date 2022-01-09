@@ -47,6 +47,7 @@ notification and pub-sub services, ML model deployment services, AI APIs (text r
 
 --- 
 
-[Next](030startup.md)
+* [Next](030startup.md)
+* [Up](../README.md)
 
 ---

@@ -50,6 +50,7 @@ A good bonus is that Lambda, DynamoDB and some other components can be (with som
 
 --- 
 
-[Next](020architecture.md)
+* [Next](020architecture.md)
+* [Up](../README.md)
 
 ---
