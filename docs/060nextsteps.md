@@ -4,7 +4,7 @@
 
 ### Prototyping/Wizard of Oz Ideas
 
-- Get bandit prompts from Trello Cards (text + pictures), update and move cards in Trello based on rewards
+- Get bandit prompts from Trello Cards (text + pictures), update and move cards in Trello based on rewards, as a dashboard
 
 ### Extrenal APIs/services ideas
 
