@@ -32,3 +32,9 @@ For practicing with prototyping, you will need:
 - an AWS account (all of the key services are in [AWS FreeTier](https://aws.amazon.com/free/))
 - notebook service like Deepnote (has some useful features and integrations, free Edu tier) or Colab to expand stubs for working with data and analytics
 - Python environment, VSCode or another editor, git
+
+--- 
+
+* [Next](docs/010motivation.md)
+
+---
