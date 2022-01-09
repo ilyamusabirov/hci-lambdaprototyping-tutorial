@@ -103,6 +103,7 @@ Note that to reply to the user, we use bot methods to send messages, not return 
 
 --- 
 
-[Next](050bandit.md)
-[Up](..)
+* [Next](050bandit.md)
+* [Up](../README.md)
+
 ---
