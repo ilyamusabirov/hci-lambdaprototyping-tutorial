@@ -34,7 +34,13 @@ notification and pub-sub services, ML model deployment services, AI APIs (text r
 
 ## References
 
-* plantuml / c4
-* https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services
-* https://aws.amazon.com/blogs/architecture/ten-things-serverless-architects-should-know/
-* https://docs.aws.amazon.com/lambda/latest/dg/running-lambda-code.html
+### Serverless Architecture Resources
+
+* [Serverless Architecture with Lambda Best Practices Whitepaper](https://d1.awsstatic.com/whitepapers/serverless-architectures-with-aws-lambda.pdf)
+* [Ten things serverless architects should know](https://aws.amazon.com/blogs/architecture/ten-things-serverless-architects-should-know/)
+* [How Lambda code is executed in context](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html)
+* [Architecture/Business context of transition to Faas](https://acloudguru.com/blog/engineering/evolution-of-business-logic-from-monoliths-through-microservices-to-functions)
+
+### Other cloud services tips
+
+* [AWS to Azure service comparison map](https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services)
