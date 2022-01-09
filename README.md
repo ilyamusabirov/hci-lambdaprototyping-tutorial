@@ -4,18 +4,20 @@
 
 [Ilya Musabirov](http://musabirov.info)
 
-This is a tutorial/JOLT for kickstarting serverless (AWS Lambda + Chalice + Python) prototyping with chatbots (Telegram/Slack).
+This is a tutorial and a prototype for kickstarting serverless (AWS Lambda + Chalice + Python) prototyping with chatbots (Telegram/Slack).
 
-It is intended mostly for HCI/UX students, who work with computational interaction (multiarmed bandits, optimization) or program prototypes and want to decrease time-to-prototype 
+Started as a Final Project for CSC2558 at UofT, it expands on the principles described in [1](https://educhi2020.hcilivingcurriculum.org/wp-content/uploads/2020/04/educhi2020-final38.pdf).
+
+It is intended mostly for HCI/UX students who work with computational interaction (multiarmed bandits, optimization) or program prototypes and want to decrease time-to-prototype 
 or time-to-user. Some more reasoning behind this approach to prototypes in [Motivation](docs/010motivation.md). 
 
-Maybe some of the users find motivation more useful and ispiring than a particular implementation ideas I came up with.
+Maybe some users find motivation more valuable and inspiring than a particular implementation idea I came up with.
 
 The tutorial contains:
 
-- [docs](docs), explaining key parts of the approach, and containing some ideas for technical and design exercises
-- Jupyter notebooks for some activities (think about each notebook as a ptototype of other parts of the system: creating database and working with gathered data, analytics)
-- [skeleton](tg-bandits) of a Chalice bot backend with stubs of key functions 
+- [docs](docs), explaining critical parts of the approach, and containing some ideas for technical and design exercises
+- Jupyter notebooks for some activities (think about each notebook as a prototype of other parts of the system: creating a database and working with gathered data, analytics)
+- [code skeleton](tg-bandits) of a Chalice bot backend with stubs of main functions 
 
 ## Table of Contents
 
@@ -26,7 +28,7 @@ The tutorial contains:
 5. [Bot Goes Bandit](docs/050bandit.md)
 6. [Exercises, Ideas, Resources, Next Steps](docs/060nextsteps.md)
 
-For practicing with prototyping you will need:
+For practicing with prototyping, you will need:
 - an AWS account (all of the key services are in [AWS FreeTier](https://aws.amazon.com/free/))
-- notebook service like Deepnote (has some useful features and integrations, free edu tier) or Colab to expand stubs for working with data and analytics
-- Python environment, VSCode or other editor, git
+- notebook service like Deepnote (has some useful features and integrations, free Edu tier) or Colab to expand stubs for working with data and analytics
+- Python environment, VSCode or another editor, git
