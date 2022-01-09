@@ -6,7 +6,7 @@
 
 This is a tutorial and a prototype for kickstarting serverless (AWS Lambda + Chalice + Python) prototyping with chatbots (Telegram/Slack).
 
-Started as a Final Project for CSC2558 at UofT, it expands on the principles described in [1](https://educhi2020.hcilivingcurriculum.org/wp-content/uploads/2020/04/educhi2020-final38.pdf).
+Started as a Final Project for CSC2558 at UofT, it expands on the principles described in [EduCHi2020 discussion paper](https://educhi2020.hcilivingcurriculum.org/wp-content/uploads/2020/04/educhi2020-final38.pdf).
 
 It is intended mostly for HCI/UX students who work with computational interaction (multiarmed bandits, optimization) or program prototypes and want to decrease time-to-prototype 
 or time-to-user. Some more reasoning behind this approach to prototypes in [Motivation](docs/010motivation.md). 
