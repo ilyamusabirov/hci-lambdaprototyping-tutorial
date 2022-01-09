@@ -100,3 +100,9 @@ Note that to reply to the user, we use bot methods to send messages, not return 
 - Render more sophisticated formated prompts, e.g. html+css with `jinja2` in Lambda, png graphs with `matplotlib` or `seaborn`, transform to picture and send via chatbots to preserve formatting/add figures
 - Think about voice message and document inputs
 - Add intent recognition
+
+--- 
+
+[Next](050bandit.md)
+[Up](..)
+---

@@ -44,3 +44,9 @@ notification and pub-sub services, ML model deployment services, AI APIs (text r
 ### Other cloud services tips
 
 * [AWS to Azure service comparison map](https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services)
+
+--- 
+
+[Next](030startup.md)
+
+---

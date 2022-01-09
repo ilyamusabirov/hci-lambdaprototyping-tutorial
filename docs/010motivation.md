@@ -47,3 +47,9 @@ A good bonus is that Lambda, DynamoDB and some other components can be (with som
     - you can mix low-def and hi-def parts (e.g. rendering real output forms and sending via messenger)
 - If integrated into the right channel with chances of being a part of user flow (Telegram, Slack), it might more likely to sustain longitudinal interaction than a web app
 - Can initiate interactions (prompts, notifications)
+
+--- 
+
+[Next](020architecture.md)
+
+---
