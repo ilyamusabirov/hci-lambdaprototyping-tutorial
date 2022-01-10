@@ -16,7 +16,6 @@ header Architecture overview
 left to right direction
 
 Users(u, "Users", "")
-'Messenger as m
 System(m, "Messenger Service")
 
 System_Boundary(c1, "Serverless System") {
