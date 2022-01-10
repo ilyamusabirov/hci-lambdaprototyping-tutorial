@@ -29,7 +29,7 @@ from chalicelib.secret import TG_TOKEN
 
 ### Webhook mode and python bot packages
 
-Usually, bot backends are started as services and use polling to get portions of requests from Telegram.
+Usually, bot backends are started as services and use polling to get portions of requests from Telegram (see [ch 2](020architecture.md) for the overview).
 
 In the FaaS case, we need to use webhook mode: set Telegram to transfer each request to the bot to a webhook URL, which AWS API GW will then send to our Lambda function.
 
