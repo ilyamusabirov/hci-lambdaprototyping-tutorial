@@ -1,0 +1,22 @@
+@startuml
+header Webhook
+footer hci-lambdaprototyping-tutorial
+participant User
+participant "Telegram/Slack" as m
+participant "gw" as gw
+participant BotBackend as bb
+
+activate m
+activate gw
+...
+User -> m: message
+m -> gw : via POST to webhook: new message
+gw -> bb : request for you
+activate bb
+bb -> bb : process task
+bb -> gw : reply
+deactivate bb
+gw -> m  : reply
+m -> User : here is your reply
+
+@enduml

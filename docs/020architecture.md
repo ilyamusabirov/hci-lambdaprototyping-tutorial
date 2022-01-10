@@ -20,6 +20,19 @@ notification and pub-sub services, ML model deployment services, AI APIs (text r
 - a minimal forward commitment to a particular architecture/infrastructure
 - opportunity to develop prototype function by function, limiting cognitive load and prototype development management complexity
 
+On the example of chatbot, let's quickly look at the difference between the one variation of more traditional architecture and FaaS on the case of interacting with some service with API (Telegram/Slack).
+
+In the non-serverless case your backend has an ongoing server process, executed in some environment. It can either response to requests, or make requests to API itself to check for incoming events (polling).
+
+Note, that your responsibility area includes executing and maintaining this ongoing process.
+
+![server-based/polling](fig/020-001.png)
+
+In the FaaS case, your code is executed only then relevant trigger is received. Of course, no magic happens, and there is some `gw` process monitoring for events and triggering your code in time,
+but it is not your responsibility anymore.
+
+![server-based/polling](fig/020-001.png)
+
 ## Key services and software
 
 - [Chalice](https://aws.github.io/chalice/) - Python framework for quick development of serverless APIs [on AWS Lambda (serverless Flask), abstracting out most of the services complexity

@@ -1,0 +1,24 @@
+@startuml
+header Polling
+footer hci-lambdaprototyping-tutorial
+participant User
+participant "Telegram/Slack" as m
+participant BotBackend as bb
+
+activate m
+activate bb
+bb -> m : new messages?
+m -> bb : no
+...
+bb -> m : new messages?
+m -> bb : no
+...
+User -> m: message
+...
+bb -> m : new messages?
+m -> bb : yeah, here it is
+bb -> bb : process task
+bb -> m : reply
+m -> User : here is your reply
+
+@enduml
