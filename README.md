@@ -33,6 +33,10 @@ For practicing with prototyping, you will need:
 - notebook service like Deepnote (has some useful features and integrations, free Edu tier) or Colab to expand stubs for working with data and analytics
 - Python environment, VSCode or another editor, git
 
+Please, leave issues and questions [here](https://github.com/ilyamusabirov/hci-lambdaprototyping-tutorial/issues).
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
 --- 
 
 * [Next](docs/010motivation.md)
