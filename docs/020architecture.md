@@ -31,7 +31,7 @@ Note, that your responsibility area includes executing and maintaining this ongo
 In the FaaS case, your code is executed only then relevant trigger is received. Of course, no magic happens, and there is some `gw` process monitoring for events and triggering your code in time,
 but it is not your responsibility anymore.
 
-![server-based/polling](fig/020-001.png)
+![server-based/polling](fig/020-002.png)
 
 ## Key services and software
 
