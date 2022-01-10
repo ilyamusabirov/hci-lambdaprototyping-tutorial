@@ -1,0 +1,38 @@
+@startuml
+footer hci-lambdaprototyping-tutorial
+header Architecture overview
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v11.1/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/AWSSimplified.puml
+
+!includeurl AWSPuml/General/Users.puml
+!includeurl AWSPuml/ApplicationIntegration/APIGateway.puml
+!includeurl AWSPuml/Compute/Lambda.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+left to right direction
+
+Users(u, "Users", "")
+'Messenger as m
+System(m, "Messenger Service")
+
+System_Boundary(c1, "Serverless System") {
+
+APIGateway(bAPI, "ChatBot API", "")
+Lambda(l, "ChatBot backend", "")
+Lambda(l2, "Bandit Backend", "")
+DynamoDB(Db, "Bandit Data", "")
+DynamoDB(Dbu, "User Data", "")
+}
+u --> m
+m --> bAPI
+bAPI --> l
+l --> l2
+l --> Dbu
+l2 --> Db
+l2 --> Dbu
+
+@enduml
