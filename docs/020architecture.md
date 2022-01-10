@@ -37,7 +37,7 @@ but it is not your responsibility anymore.
 
 Overall systems architecture in this case might look like this:
 
-![serverless-overview](fig/020-0003.png)
+![serverless-overview](fig/020-003.png)
 
 ## Key services and software
 
