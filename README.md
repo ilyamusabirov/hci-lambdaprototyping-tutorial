@@ -33,7 +33,7 @@ The tutorial contains:
 ## Before we start
 
 For practicing with prototyping, you will need:
-- an AWS account (all of the key services are in [AWS FreeTier](https://aws.amazon.com/free/))
+- an AWS account (all of the key services are in [AWS FreeTier limits](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all))
 - notebook service like Deepnote (has some useful features and integrations, free Edu tier) or Colab to expand stubs for working with data and analytics
 - Python environment, VSCode or another editor, git
 
