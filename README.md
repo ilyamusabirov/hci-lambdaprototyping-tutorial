@@ -4,6 +4,8 @@
 
 [Ilya Musabirov](http://musabirov.info)
 
+## Summary
+
 This is a tutorial and a software prototype for kickstarting serverless (AWS Lambda + Chalice + Python) prototyping with chatbots (Telegram/Slack).
 
 Started as a Final Project for CSC2558 at UofT, it expands on the principles described in [EduCHi2020 discussion paper](https://educhi2020.hcilivingcurriculum.org/wp-content/uploads/2020/04/educhi2020-final38.pdf).
@@ -28,10 +30,14 @@ The tutorial contains:
 5. [Bot Goes Bandit](docs/050bandit.md)
 6. [Exercises, Ideas, Resources, Next Steps](docs/060nextsteps.md)
 
+## Before we start
+
 For practicing with prototyping, you will need:
 - an AWS account (all of the key services are in [AWS FreeTier](https://aws.amazon.com/free/))
 - notebook service like Deepnote (has some useful features and integrations, free Edu tier) or Colab to expand stubs for working with data and analytics
 - Python environment, VSCode or another editor, git
+
+## Feedback
 
 Please, leave issues and questions [here](https://github.com/ilyamusabirov/hci-lambdaprototyping-tutorial/issues).
 
