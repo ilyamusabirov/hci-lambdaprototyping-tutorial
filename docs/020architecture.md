@@ -63,7 +63,7 @@ Overall systems architecture in this case might look like this:
 ### Other cloud services tips
 
 * [AWS to Azure service comparison map](https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services)
-* [Think Serverless. Tips for Early Stage Startups from Google Cloud](https://cloud.google.com/blog/topics/startups/think-serverless-tips-for-early-stage-startups)
+* [Think Serverless. Tips for Early Stage Startups from Google Cloud](https://cloud.google.com/blog/topics/startups/think-serverless-tips-for-early-stage-startups) & [serverless portal](https://cloud.google.com/serverless)
 
 --- 
 
